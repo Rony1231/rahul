@@ -1,0 +1,73 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index1</title>
+    <script src="~/scripts/jquery-1.10.2.js"></script>
+
+    <script src="~/scripts/angular.min.js"></script>
+    <script src="~/scripts/angular-route.min.js"></script>
+</head>
+<body>
+    <div ng-app="angularDemo">
+        <div ng-controller="basicController">
+
+            <h4>Basic Binding</h4>
+            <label>This is one way binding <span>{{whatAmI}}</span></label>
+            <h4>Basic Binding</h4>
+            <label>This is one way binding <span ng-bind="whatAmI"></span></label>
+            <label>This is 2 way binding </label><br />
+            <input type="text" ng-model="whatAmI" />
+            <br />
+            <h4>Select list in 2 way data binding</h4>
+            <label> Selected Item</label>
+            <br />
+            <span>{{listSelection}}</span>
+            <br />
+            <select ng-model="listSelection" ng-options="item.key as item.text for item in listOfStuff"></select>
+            <br />
+            <h4>
+                Binding to an object With filtering
+            </h4>
+            <pre>{text:"Some Text, CurrentDate: new Date(), amount:{{someData.amount}}"}</pre>
+            <label>Some Data Text: </label>
+            <br />
+            <span>{{someData.text}}</span>
+            <br />
+           
+            <span>{{someData.currentDate | date: 'dd MM yyyy'}}</span>
+
+            <br />
+            <span>{{someData.currentDate | date: 'hh:ss'}}</span>
+            <br />
+            <span>{{someData.amount | currency: '$'}}</span>
+            <br />
+            <span>{{someData.amount + 10 | currency: '>>'}}</span>
+            <br />
+            <label>Change Amount:</label>
+            <input type="number" ng-model="someData.amount" />
+            <br />
+            <h4>List And Filter </h4>
+            <br />
+            <input type="text" ng-model="listFilter" />
+            <br />
+            <ul>
+                <li ng-repeat="item in listOfStuff | filter:{text: listFilter}">
+                    {{item.text}}
+                </li>
+            </ul>
+        </div>
+        <br />
+
+
+    </div>
+    <script src="~/js/module.js"></script>
+    <script src="~/js/basicController.js"></script>
+</body>
+</html>

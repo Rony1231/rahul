@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+  
+    <script src="js/angular.js"></script>
+
+</head>
+<body ng-app="angularDemo">
+    <div ng-controller="mainController">
+        
+        <h4>Invoke Service And Factory(mainController)</h4>
+        <label>Call Factory Method </label>
+        <button ng-click="callFactory()"> Call Factory Button </button> <br />
+
+        <label>Call Service Method: </label>
+        <button ng-click="callService()"> Call Service </button><br />
+
+        <label>Factory Property Value: {{factoryPropertyValue()}}</label>
+        <label>Service Property Value: {{servicePropertyValue()}}</label>
+
+
+
+    </div>
+
+    <div ng-controller="anotherController">
+
+        <h4>Invoke Service And Factory(anotherController)</h4>
+        <label>Call Factory Method </label>
+        <button ng-click="callFactory()"> Call Factory Button </button> <br />
+
+        <label>Call Service Method: </label>
+        <button ng-click="callService()"> Call Service </button><br />
+
+        <label>Factory Property Value: {{factoryPropertyValue()}}</label>
+        <label>Service Property Value: {{servicePropertyValue()}}</label>
+
+
+
+    </div>
+    <script src="js/newmodule.js"></script>
+    <script src="js/theService.js"></script>
+    <script src="js/theFactory.js"></script>
+    <script src="js/mainController.js"></script>
+
+
+</body>
+</html>

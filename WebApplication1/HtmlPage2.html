@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+   
+    <script src="scripts/jquery-3.1.1.js"></script>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+</head>
+<body ng-app="angularDemo">
+    <div ng-controller="directiveController">
+
+        <h4>ngshow</h4>
+        <label>ShowSelection</label>
+
+        <input type="checkbox" ng-model="showSection" />
+        <div ng-show="showSection" style="width:300px; height:100px">
+            <p>Hello Check Box Selected</p>
+        </div>
+
+        <hr />
+
+        <h4>ngclick</h4>
+
+
+        <label> Angular </label>
+        <div ng:click="divClickHandler()">I am div element </div><br />
+        <button ng-click="buttonClickHandler()">Click me</button><br />
+
+        <label>Button Clicked Count {{buttonClickCount}}</label><br />
+        <label>div Clicked Count {{divClickCount}}</label><br />
+
+        <hr />
+
+        <h4>ngclass</h4>
+
+        <label>Enter number in range between 0 to 100</label>
+        <br />
+
+        <input type="text" ng-model="numberValue" />    
+        <span ng-class="{'numeric-error': isNumberValueInvalid}">{{feedbackMessage()}}</span>
+        <hr />
+
+
+        <h4>Alternating Row with<span> ng classeven</span></h4><br />
+
+        <ul>
+            <li ng-repeat="item in listOfData" ng-class-even="'row-even'" ng-class-odd="'row-odd'" >
+                {{item}}
+            </li>
+        </ul>
+
+
+    </div>
+    <script src="js/module.js"></script>
+    <script src="js/directiveController.js"></script>
+</body>
+</html>
